@@ -65,7 +65,7 @@ Run consumer:
 
 ```bash
 kafka-console-consumer \
---bootstrap-server broker:9092 \
+--bootstrap-server broker:29092 \
 --topic users_created \
 --from-beginning
 ```
@@ -85,11 +85,11 @@ docker exec -it spark-master bash
 Run job:
 
 ```bash
-/opt/spark/bin/spark-submit \
---master spark://spark-master:7077 \
---packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,com.datastax.spark:spark-cassandra-connector_2.12:3.4.1 \
---conf spark.jars.ivy=/tmp/.ivy \
-/opt/sparkstream.py
+spark@3e04071816ef:/opt/spark/work-dir$ /opt/spark/bin/spark-submit \
+> --master spark://spark-master:7077 \
+> --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,com.datastax.spark:spark-cassandra-connector_2.12:3.4.1 \
+> --conf spark.jars.ivy=/tmp/.ivy \
+> /opt/workspace/sparkstream.py
 ```
 
 ---
